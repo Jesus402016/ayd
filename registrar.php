@@ -42,6 +42,217 @@
             </div>
           </div>
         </div>
+
+          <!-- modal RegistrarFinca-->
+     <div class="modal fade" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel" style="color:black;">Agregar Cliente</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+           <div class="form-group">
+                     <p>Nombre:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+            <div class="form-group">
+                     <p>Cedula:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+            <div class="form-group">
+                     <p>Correo:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+            <div class="form-group">
+                     <p>Telefono:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+            <div class="form-group">
+                     <p>Ocupacion:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+             <div class="form-group">
+                     <p>Contraseña:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+             <div class="form-group">
+                     <p>Departamento:</p>
+                     <select class="form-control">
+                        <option>Cesar</option>
+                        <option>Guajira</option>
+                        <option>N.te de santander</option>
+                     </select>
+            </div>
+
+            <div class="form-group">
+                     <p>Ciudad:</p>
+                     <select class="form-control">
+                        <option>Armenia</option>
+                        <option>Cucuta</option>
+                        <option>Valledupar</option>
+                     </select>
+            </div>
+
+
+          </form>
+           </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a type="button" class="btn btn-primary" onclick="mostrarCliente();" data-dismiss="modal">Guardar</a>
+      </div>
+ 
+<!--termina modal Registrar Finca--></div> 
+  <!-- modal Registrar Lote-->
+     <div class="modal fade" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> 
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel" style="color:black;">Agregar Cliente</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+           <div class="form-group">
+                     <p>Nombre:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+            <div class="form-group">
+                     <p>Cedula:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+            <div class="form-group">
+                     <p>Correo:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+            <div class="form-group">
+                     <p>Telefono:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+            <div class="form-group">
+                     <p>Ocupacion:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+             <div class="form-group">
+                     <p>Contraseña:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+             <div class="form-group">
+                     <p>Departamento:</p>
+                     <select class="form-control">
+                        <option>Cesar</option>
+                        <option>Guajira</option>
+                        <option>N.te de santander</option>
+                     </select>
+            </div>
+
+            <div class="form-group">
+                     <p>Ciudad:</p>
+                     <select class="form-control">
+                        <option>Armenia</option>
+                        <option>Cucuta</option>
+                        <option>Valledupar</option>
+                     </select>
+            </div>
+
+
+          </form>
+           </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a type="button" class="btn btn-primary" onclick="mostrarCliente();" data-dismiss="modal">Guardar</a>
+      </div>
+ 
+<!--termina modal Registrar Lote--></div> 
+  <!-- modal Registrar-->
+     <div class="modal fade" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel" style="color:black;">Agregar Cliente</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+           <div class="form-group">
+                     <p>Nombre:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+            <div class="form-group">
+                     <p>Cedula:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+            <div class="form-group">
+                     <p>Correo:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+            <div class="form-group">
+                     <p>Telefono:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+            <div class="form-group">
+                     <p>Ocupacion:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+             <div class="form-group">
+                     <p>Contraseña:</p>
+                     <input type="text" class="form-control">
+                      <span class="input-group-btn"></span>
+            </div>
+
+             <div class="form-group">
+                     <p>Departamento:</p>
+                     <select class="form-control">
+                        <option>Cesar</option>
+                        <option>Guajira</option>
+                        <option>N.te de santander</option>
+                     </select>
+            </div>
+
+            <div class="form-group">
+                     <p>Ciudad:</p>
+                     <select class="form-control">
+                        <option>Armenia</option>
+                        <option>Cucuta</option>
+                        <option>Valledupar</option>
+                     </select>
+            </div>
+
+
+          </form>
+           </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a type="button" class="btn btn-primary" onclick="mostrarCliente();" data-dismiss="modal">Guardar</a>
+      </div>
+ 
+<!--termina modal Registrar Fertilizante--></div> 
         <footer class="footer full-reset">
             <div class="container-fluid">
                 <div class="row">

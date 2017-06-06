@@ -22,7 +22,7 @@
                 <div class="container-flat-form">
                     <div class="title-flat-form title-flat-blue">Nuevo Analisis de Suelo</div>
                     <div class="row">
-                          <!--<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                             <legend><strong>Ingresar Informacion</strong></legend><br>
                             <div class="group-material">
                                 <span>Seleccionar Finca</span>
@@ -34,7 +34,7 @@
                                 </select>
                             </div>-->
                           <!--lote-->
-                         <!-- 
+                         !-- 
                         <div class="group-material">
                                 <span>Seleccionar Lote</span>
                                 <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige Tu Lote">
