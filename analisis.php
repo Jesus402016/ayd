@@ -1,7 +1,8 @@
 
       <?php
         require_once("otros/encabezado.php");
-    ?>
+        session_start();
+    if(isset($_SESSION["id"])){?>
         <div class="container">
             <div class="page-header">
               <h1 class="all-tittles">Sistema bibliotecario <small>Añadir libro</small></h1>
@@ -34,7 +35,7 @@
                                 </select>
                             </div>-->
                           <!--lote-->
-                         !-- 
+                         !--
                         <div class="group-material">
                                 <span>Seleccionar Lote</span>
                                 <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige Tu Lote">
@@ -122,3 +123,8 @@
     </div>
 </body>
 </html>
+<?php
+}else{
+  header("location: index.php");
+}
+?>

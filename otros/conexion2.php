@@ -17,75 +17,75 @@ class conexion2 {
 //    private $usuario = "root";
 //    private $constrasena = "";
 //    private $bd = "ufps_85";
-//    
+//
 //    private $servidor = "sandbox2.ufps.edu.co";
 //    private $usuario = "ufps_85";
 //    private $constrasena = "ufps_11";
 //    private $bd = "ufps_85";
-//    
-  
-        private $servidor = "localhost";
+//
+
+    private $servidor = "localhost";
     private $usuario = "root";
     private $constrasena = "";
     private $bd = "ayd";
-    
-//    
+
+//
 //    private $servidor = "sandbox2.ufps.edu.co";
 //    private $usuario = "ufps_27";
 //    private $constrasena = "ufps_er";
 //    private $bd = "ufps_27";
-//    
-    
-    
+//
+
+
 //    private $servidor = "localhost";
 //    private $usuario = "root";
 //    private $constrasena = "";
 //    private $bd = "ufps_27";
-//    
+//
 ////    private $conexion = "";
-    
+//
  //   private $servidor = "localhost"; //"localhost o 161.18.233.43";
 //    private $usuario = "root";//"root o certiret
  //   private $constrasena = "Soporte";
  //  private $bd = "inmobiliariaCelisBD";
-//    
-//    
+//
+//
 //
 //    private $servidor = "localhost"; //"localhost o 161.18.233.43";
 //    private $usuario = "root";//"root o certiret
 //    private $constrasena = "";
 //    private $bd = "gymbd";
 //    gymbdgymbd
-    
-    
-//    
+
+
+//
 //    private $servidor = "localhost";
 //    private $usuario = "sejib_sejib";
 //    private $constrasena = "manuel620316";
 //    private $bd = "sejib_sejib";
-//    
-    
+//
+
     private $conexion;
     static $_instance;
-    
+
     function __construct() {
         $this->conection();
     }
 
-    
+
     /**
      * Metodo para realizar la conexión a la BD
      */
     public function conection() {
         if ($this->conexion == null || $this->conexion == "") {
-            
+
                 $this->conexion = new mysqli($this->servidor, $this->usuario, $this->constrasena, $this->bd);
                 /* comprobar la conexión */
                 if ($this->conexion->connect_errno) {
                     printf("Falló la conexión: %s\n", $this->conexion->connect_error);
                     exit();
                 }
-            
+
         }
         else {
             if (!mysqli_ping($this->conexion)) {
@@ -96,9 +96,9 @@ class conexion2 {
     }
 
     private function __clone(){ }
-    
-    
-    
+
+
+
    public static function getInstance(){
       if (!(self::$_instance instanceof self)){
          self::$_instance=new self();
@@ -109,7 +109,7 @@ class conexion2 {
     /**
      * Metodo para ejecutar la Consulta SQL
      * @param type $consulta consulta a realizar
-     * @return type Devuelve el contenido de la consulta en caso de estar bien, 
+     * @return type Devuelve el contenido de la consulta en caso de estar bien,
      * de lo contrario mostrara el error correspondiente
      */
     public function ejecutarConsultaSQL($consulta) {
@@ -140,13 +140,13 @@ class conexion2 {
     }
 
     public function getCantidadFilas($result) {
-        return mysqli_num_rows($result);      
+        return mysqli_num_rows($result);
     }
 
     public function desconnetar() {
         mysqli_close($this->conexion);
     }
-  
+
     public function GetIdInsertado() {
         mysql_insert_id();
     }

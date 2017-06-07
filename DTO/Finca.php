@@ -13,7 +13,7 @@ class Finca
 	var $ciudad;
 	var $idFinca;
 	var $idUsuario;
-	var $m_Lote;
+	var $departamento;
 
 	function Finca()
 	{
@@ -22,17 +22,17 @@ class Finca
 
 
 	/**
-	 * 
+	 *
 	 * @param idLote
 	 * @param nombre
 	 * @param usuario
 	 */
-	function Finca($idLote, $nombre, $usuario)
+	function ginca($idLote, $nombre, $usuario)
 	{
 	}
 
 	/**
-	 * 
+	 *
 	 * @param idFinca
 	 */
 	function regisrarLote($idFinca)
@@ -45,7 +45,7 @@ class Finca
 	}
 
 	/**
-	 * 
+	 *
 	 * @param newVal
 	 */
 	function setidUsuario($newVal)
@@ -59,7 +59,7 @@ class Finca
 	}
 
 	/**
-	 * 
+	 *
 	 * @param newVal
 	 */
 	function setnombre($newVal)
@@ -73,7 +73,7 @@ class Finca
 	}
 
 	/**
-	 * 
+	 *
 	 * @param newVal
 	 */
 	function setciudad($newVal)
@@ -87,12 +87,26 @@ class Finca
 	}
 
 	/**
-	 * 
+	 *
 	 * @param newVal
 	 */
 	function setidFinca($newVal)
 	{
 		$this->idFinca = $newVal;
+	}
+
+	function getdepartamento()
+	{
+		return $this->departamento;
+	}
+
+	/**
+	 *
+	 * @param newVal
+	 */
+	function setdepartamento($newVal)
+	{
+		$this->departamento = $newVal;
 	}
 
 }

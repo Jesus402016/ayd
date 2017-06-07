@@ -1,6 +1,24 @@
-<!-- 
+<!--
 * Copyright 2016 Carlos Eduardo Alfaro Orellana
 -->
+<?php
+
+
+
+session_start();
+
+if(isset($_SESSION["administrador"])){
+
+	header("location: inicioAdmin.php");
+
+}
+else if(isset($_SESSION["usuario"]))
+{
+
+	header("location: inicioUsuario.php");
+
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,25 +47,35 @@
            <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
        </p>
        <h4 class="text-center all-tittles" style="margin-bottom: 30px;">inicia sesión con tu cuenta</h4>
-       <form>
+       <form  action="controlador/validarLoginUsuario.php" method ="post">
             <div class="group-material-login">
-              <input type="text" class="material-login-control" required="" maxlength="70">
+              <input type="text" class="material-login-control" name="usuario" id = "Usuario" required="" maxlength="70">
               <span class="highlight-login"></span>
               <span class="bar-login"></span>
-              <label><i class="zmdi zmdi-account"></i> &nbsp; Nombres</label>
+              <label><i class="zmdi zmdi-account"></i> &nbsp; Usuario</label>
             </div><br>
             <div class="group-material-login">
-              <input type="password" class="material-login-control" required="" maxlength="70">
+              <input type="password" class="material-login-control" name="password" id = "Password" required="" maxlength="70">
               <span class="highlight-login"></span>
               <span class="bar-login"></span>
               <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
-            </div>
-            <button class="btn-login" type="submit" href="inicio.html" >Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i></button>
-            
+            </div><br>
+            <div class="group-material-login">
+
+              <select class="form-control" id="rol" name="rol">
+
+                  <option value="1">Usuario</option>
+                  <option value="2">Administrador</option>
+
+
+              </select>
+            </div><br>
+            <button class="btn-login" type="submit" >Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i></button>
+
         </form>
         <!--botton registrar nuevo usuario-->
         <button class="btn-login-left" data-toggle="modal" data-target="#modalRegistrar" type="submit">Registrar &nbsp; <i class="zmdi zmdi-arrow-"></i></button>
-    </div> 
+    </div>
 
      <!-- modal Registrar-->
      <div class="modal fade" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -61,34 +89,34 @@
         <form  id="FormUsuario">
            <div class="form-group">
                      <p>Nombre:</p>
-                     <input type="text" class="form-control" id="nombre">
+                     <input type="text" class="form-control" id="nombre" required="">
                       <span class="input-group-btn"></span>
             </div>
 
             <div class="form-group">
                      <p>Cedula:</p>
-                     <input type="text" class="form-control" id="cedula">
+                     <input type="text" class="form-control" id="cedula" required="">
                       <span class="input-group-btn"></span>
             </div>
 
             <div class="form-group">
                      <p>Correo:</p>
-                     <input type="text" class="form-control" id="correo">
+                     <input type="text" class="form-control" id="correo" required="">
                       <span class="input-group-btn"></span>
             </div>
             <div class="form-group">
                      <p>Telefono:</p>
-                     <input type="text" class="form-control" id="telefono">
+                     <input type="text" class="form-control" id="telefono" required="">
                       <span class="input-group-btn"></span>
             </div>
             <div class="form-group">
                      <p>Ocupacion:</p>
-                     <input type="text" class="form-control" id="ocupacion">
+                     <input type="text" class="form-control" id="ocupacion" required="">
                       <span class="input-group-btn"></span>
             </div>
              <div class="form-group">
                      <p>Contraseña:</p>
-                     <input type="text" class="form-control" id="clave">
+                     <input type="text" class="form-control" id="clave" required="">
                       <span class="input-group-btn"></span>
             </div>
 
@@ -110,15 +138,15 @@
                      </select>
             </div>
 
-           <button type="submit" class="btn btn-default" data-dismiss="modal" onclick="registrarUsuario();">Close</button>
+         <!---<button type="submit" class="btn btn-default" data-dismiss="modal" onclick="registrarUsuario();">Close</button>-->
           </form>
            </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
         <a type="button" class="btn btn-primary" onclick="registrarUsuario();" data-dismiss="modal">Guardar</a>
       </div>
 
-<!--termina modal Registrar--></div> 
+<!--termina modal Registrar--></div>
 
 
 </body>

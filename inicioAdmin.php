@@ -1,9 +1,8 @@
 
    <?php
         require_once("otros/encabezado.php");
-          session_start();
-    if(isset($_SESSION["id"])){?>
-    ?>
+        session_start();
+    if(isset($_SESSION["administrador"])){?>
         <div class="container">
             <div class="page-header">
               <h1 class="all-tittles">Sistema de Fertelizacion del Cacao<small>Inicio</small></h1>
@@ -11,9 +10,9 @@
         </div>
         <section class="full-reset text-center" style="padding: 40px 0;">
           <H3>Bienvenido a la Platafomra</h3>
-           
+
         </section>
-        
+
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -48,6 +47,6 @@
 </html>
 <?php
 }else{
-    header("location: index.php");
+	header("location: index.php");
 }
 ?>

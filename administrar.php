@@ -1,19 +1,41 @@
-
-   <?php
+<?php
         require_once("otros/encabezado.php");
-          session_start();
+        session_start();
     if(isset($_SESSION["id"])){?>
-    ?>
+
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Sistema de Fertelizacion del Cacao<small>Inicio</small></h1>
+              <h1 class="all-tittles">Administracion General<small>.</small></h1>
             </div>
         </div>
+
         <section class="full-reset text-center" style="padding: 40px 0;">
-          <H3>Bienvenido a la Platafomra</h3>
-           
+
+            <article class="tile">
+                <a href="AdministrarFinca.php">
+                <div class="tile-icon full-reset"><i class="zmdi zmdi-pin-drop"></i></div>
+                <div class="tile-name all-tittles">Fincas</div>
+                <div class="tile-num full-reset">1</div>
+                </a>
+            </article>
+
+            <article class="tile">
+                <a href="AdministrarLote.php">
+                <div class="tile-icon full-reset"><i class="zmdi zmdi-nature"></i></div>
+                <div class="tile-name all-tittles">Lotes</div>
+                <div class="tile-num full-reset">2</div>
+                </a>
+            </article>
+            <article class="tile">
+                <a href="AdministrarFertilizante.php">
+                <div class="tile-icon full-reset"><i class="zmdi zmdi-flower-alt"></i></div>
+                <div class="tile-name all-tittles">Fertilizantes</div>
+                <div class="tile-num full-reset">3</div>
+                </a>
+            </article>
+
         </section>
-        
+
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -30,6 +52,9 @@
             </div>
           </div>
         </div>
+
+
+<div>
         <footer class="footer full-reset">
             <div class="container-fluid">
                 <div class="row">
@@ -45,9 +70,11 @@
         </footer>
     </div>
 </body>
+<script src="js/operaciones.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </html>
 <?php
 }else{
-    header("location: index.php");
+  header("location: index.php");
 }
 ?>

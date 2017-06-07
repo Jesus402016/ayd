@@ -1,5 +1,5 @@
 <?php
-include_once '../FACADE/facade.php'; 
+include_once '../FACADE/facade.php';
 
 
  $nombre=$_POST['Nombre'];
@@ -10,8 +10,8 @@ $ocupacion=$_POST['ocupacion'];
 $telefono=$_POST['telefono'];
 $departamento=$_POST['departamento'];
 $ciudad=$_POST['ciudad'];
-$facade= Facade::getInstance();  
+$facade= Facade::getInstance();
 $result=$facade->registrarUsuario($ciudad, $clave, $ocupacion, $correo, $telefono, $nombre, $cedula);
-print_r($_POST);
+
 
 ?>

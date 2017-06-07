@@ -7,18 +7,23 @@
  */
 
 include_once '../DTO/Usuario.php';
+include_once '../DTO/Administrador.php';
+include_once '../DAO/Administrador_DAO.php';
 include_once '../DAO/Usuario_DAO.php';
+include_once '../DTO/Finca.php';
+include_once '../DAO/Finca_DAO.php';
+
 class OpUsuario
 {
 
-	
+
 	function __construct() {
-        
+
     }
 
-   
+
 	/**
-	 * 
+	 *
 	 * @param ciudad
 	 * @param contraseña
 	 * @param ocupacion
@@ -27,7 +32,7 @@ class OpUsuario
 	 * @param Nombre
 	 * @param cedula
 	 */
-	function registrarUsuario($ciudad, $contraseña, $ocupacion, $correo, $telefono, $Nombre, $cedula)
+	function registrarUsuario($ciudad, $contrasena, $ocupacion, $correo, $telefono, $Nombre, $cedula)
 	{
 		$Usuario= new Usuario();
 		$UsuarioDAO= new Usuario_DAO();
@@ -37,8 +42,9 @@ class OpUsuario
 		$Usuario->setocupacion($ocupacion);
 		$Usuario->settelefono($telefono);
 		$Usuario->setcedula($cedula);
+		$Usuario->setcontrasena($contrasena);
 		$result=$UsuarioDAO-> AgregarUsuario($Usuario);
-        
+
         if($result!=true){
             echo 'Error al registrar Cliente';
         }
@@ -49,17 +55,67 @@ class OpUsuario
 	}
 
 	/**
-	 * 
+	 *
 	 * @param ciudad
 	 * @param idUsuario
 	 * @param nombre
 	 */
-	function registrarFinca($ciudad, $idUsuario, $nombre)
+	function registrarFinca($ciudad, $nombre, $departamento,$idusuario)
 	{
+		$finca = new Finca();
+		$fincaDAO = new Finca_DAO();
+		$finca->setNombre($nombre);
+		$finca->setciudad($ciudad);
+		$finca->setdepartamento($departamento);
+		$finca->setidusuario($idusuario);
+		$result=$fincaDAO-> AgregarFinca($finca);
+
+		if($result!=true){
+				echo 'Error al registrar Finca';
+		}
+		else {
+				echo 'Registro Exitoso';
+		}
+	}
+
+	function validarLogin($user,$password,$rol)
+	{
+		if ($rol==1) {
+				$usuario=new Usuario();
+				$UsuarioDAO=new Usuario_DAO();
+				$usuario->setcedula($user);
+				$usuario->setpassword($password);
+
+
+				$resultado=$UsuarioDAO->Login($usuario);
+				if($row=$UsuarioDAO->getArray($resultado)){
+						return $row;
+				}
+				else {
+						return false;
+				}
+
+		}
+
+		 if ($rol==2) {
+				$administrador = new Administrador();
+				$AdministradorDAO=new Administrador_DAO();
+				$administrador->setcedula($user);
+				$administrador->setpassword($password);
+				$resultado=$AdministradorDAO->Login($administrador);
+				if($row=$AdministradorDAO->getArray($resultado)){
+						return $row;
+				}
+				else {
+						return false;
+				}
+
+		}
+
 	}
 
 	/**
-	 * 
+	 *
 	 * @param nombre
 	 * @param idFinca
 	 */
@@ -68,7 +124,7 @@ class OpUsuario
 	}
 
 	/**
-	 * 
+	 *
 	 * @param medida
 	 * @param estado
 	 * @param funcion
@@ -84,7 +140,7 @@ class OpUsuario
 	}
 
 	/**
-	 * 
+	 *
 	 * @param zinc
 	 * @param manganesio
 	 * @param ph
@@ -100,7 +156,7 @@ class OpUsuario
 	}
 
 	/**
-	 * 
+	 *
 	 * @param potasio
 	 * @param fosforo
 	 * @param nitrogeno

@@ -5,21 +5,18 @@
  * @version 1.0
  * @created 05-jun-2017 04:11:22 p.m.
  */
-class Usuario
+class Administrador
 {
 
 	var $Nombre;
 	var $cedula;
 	var $correo;
-	var $ciudad;
-	var $departamento;
 	var $telefono;
-	var $idUsuario;
-	var $ocupacion;
+	var $idAdministrador;
 	var $contrasena;
 
 
-	function Usuario()
+	function Administrador()
 	{
 	}
 
@@ -30,9 +27,7 @@ class Usuario
 	 * @param idUsuario
 	 * @param ciudad
 	 */
-	function registrarFinca($nombre, $idUsuario, $ciudad)
-	{
-	}
+
 
 	function getNombre()
 	{
@@ -76,33 +71,9 @@ class Usuario
 		$this->correo = $newVal;
 	}
 
-	function getciudad()
-	{
-		return $this->ciudad;
-	}
 
-	/**
-	 *
-	 * @param newVal
-	 */
-	function setciudad($newVal)
-	{
-		$this->ciudad = $newVal;
-	}
 
-	function getdepartamento()
-	{
-		return $this->departamento;
-	}
 
-	/**
-	 *
-	 * @param newVal
-	 */
-	function setdepartamento($newVal)
-	{
-		$this->departamento = $newVal;
-	}
 
 	function gettelefono()
 	{
@@ -118,33 +89,23 @@ class Usuario
 		$this->telefono = $newVal;
 	}
 
-	function getidUsuario()
+	function getidAdministrador()
 	{
-		return $this->idUsuario;
+		return $this->idAdministrador;
 	}
 
 	/**
 	 *
 	 * @param newVal
 	 */
-	function setidUsuario($newVal)
+	function setidAdministrador($newVal)
 	{
-		$this->idUsuario = $newVal;
+		$this->idAdministrador = $newVal;
 	}
 
-	function getocupacion()
-	{
-		return $this->ocupacion;
-	}
 
-	/**
-	 *
-	 * @param newVal
-	 */
-	function setocupacion($newVal)
-	{
-		$this->ocupacion = $newVal;
-	}
+
+
 
 
    	function getpassword()

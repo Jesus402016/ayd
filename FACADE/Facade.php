@@ -17,21 +17,25 @@ class Facade
    }
 
    private function __clone(){ }
-    
+
    public static function getInstance(){
       if (!(self::$_instance instanceof self)){
          self::$_instance=new self();
       }
       return self::$_instance;
    }
-   
+
+
+	 	function validarLogin($usuario,$password,$rol){
+         return $this->OpUsuario->validarLogin($usuario,$password,$rol);
+		}
 
 
 
 	/**
-	 * 
+	 *
 	 * @param ciudad
-	 * @param contraseña
+	 * @param contraseï¿½a
 	 * @param ocupacion
 	 * @param correo
 	 * @param telefono
@@ -44,17 +48,18 @@ class Facade
 	}
 
 	/**
-	 * 
+	 *
 	 * @param ciudad
 	 * @param idUsuario
 	 * @param nombre
 	 */
-	function registrarFinca($ciudad, $idUsuario, $nombre)
+	function registrarFinca($ciudad, $nombre, $departamento,$idusuario)
 	{
+		return $this->OpUsuario->registrarFinca($ciudad, $nombre, $departamento,$idusuario);
 	}
 
 	/**
-	 * 
+	 *
 	 * @param nombre
 	 * @param idFinca
 	 */
@@ -63,7 +68,7 @@ class Facade
 	}
 
 	/**
-	 * 
+	 *
 	 * @param medida
 	 * @param estado
 	 * @param funcion
@@ -79,7 +84,7 @@ class Facade
 	}
 
 	/**
-	 * 
+	 *
 	 * @param zinc
 	 * @param manganesio
 	 * @param ph
