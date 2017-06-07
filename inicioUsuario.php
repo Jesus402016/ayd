@@ -2,6 +2,9 @@
         require_once("otros/encabezado.php");
         session_start();
     if(isset($_SESSION["id"])){?>
+      <?php
+       require_once("otros/navUsuario.php");
+        ?>
         <div class="container">
             <div class="page-header">
               <h1 class="all-tittles">Sistema de Fertelizacion del Cacao<small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bienvenido <?php echo $_SESSION["usuario"] ?></small></h1>

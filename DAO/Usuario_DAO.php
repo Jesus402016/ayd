@@ -18,14 +18,14 @@ class Usuario_DAO {
 
 
     public function AgregarUsuario(Usuario $user) {
-     $Nombre=$user->getNombre();
+    $Nombre=$user->getNombre();
     $cedula=$user->getcedula();
     $correo=$user->getcorreo();
     $ciudad=$user->getciudad();
     $departamento=$user->getdepartamento();
     $telefono=$user->gettelefono();
     $ocupacion=$user->getocupacion();
-    $contrasena=$user->getcontrasena();
+    $contrasena=$user->getpassword();
 
 
           $this->bd->conection();

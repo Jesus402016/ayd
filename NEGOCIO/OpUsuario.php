@@ -42,7 +42,7 @@ class OpUsuario
 		$Usuario->setocupacion($ocupacion);
 		$Usuario->settelefono($telefono);
 		$Usuario->setcedula($cedula);
-		$Usuario->setcontrasena($contrasena);
+		$Usuario->setpassword($contrasena);
 		$result=$UsuarioDAO-> AgregarUsuario($Usuario);
 
         if($result!=true){

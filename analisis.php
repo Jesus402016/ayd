@@ -3,21 +3,15 @@
         require_once("otros/encabezado.php");
         session_start();
     if(isset($_SESSION["id"])){?>
+     <?php
+       require_once("otros/navUsuario.php");
+        ?>
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Sistema bibliotecario <small>Añadir libro</small></h1>
+              <h1 class="all-tittles">Nuevo Analisis<small></small></h1>
             </div>
         </div>
-        <div class="container-fluid"  style="margin: 50px 0;">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <img src="assets/img/logo.png" alt="pdf" class="img-responsive center-box" style="max-width: 110px;">
-                </div>
-                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                    Bienvenido a la sección para agregar un analisis de suelo y obtener asi los resultados de los nutrientes faltantes y una recomendacion de fertilizantes para suplirlos
-                </div>
-            </div>
-        </div>
+        
         <div class="container-fluid">
             <form autocomplete="off">
                 <div class="container-flat-form">
@@ -25,26 +19,41 @@
                     <div class="row">
                           <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                             <legend><strong>Ingresar Informacion</strong></legend><br>
-                            <div class="group-material">
-                                <span>Seleccionar Finca</span>
-                                <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la Finca">
-                                    <option value="" disabled="" selected="">Selecciona Finca</option>
-                                    <option value="categoria">Finca1</option>
-                                    <option value="categoria">Finca2</option>
-                                    <option value="categoria">Finca3</option>
-                                </select>
-                            </div>-->
-                          <!--lote-->
-                         !--
-                        <div class="group-material">
-                                <span>Seleccionar Lote</span>
-                                <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige Tu Lote">
-                                    <option value="" disabled="" selected="">Selecciona Lote</option>
-                                    <option value="categoria">Lote1</option>
-                                    <option value="categoria">Lote22</option>
-                                    <option value="categoria">Lote3</option>
-                                </select>
-                            </div>-->
+                                <!--Seleccion de Finca-->
+                                <div class="form-group">
+                                 <span>Seleccionar Finca</span>
+                                  <div class="col-lg-10" id="select-finca">
+                                
+                                  <select id="basic" class="selectpicker show-tick form-control" data-live-search="true">
+                                  <option>cow</option>
+                                  <option data-subtext="option subtext">bull</option>
+                                  <option class="get-class" disabled>ox</option>
+                                  <optgroup label="test" data-subtext="optgroup subtext">
+                                  <option>ASD</option>
+                                  <option selected>Bla</option>
+                                  <option>Ble</option>
+                                 </optgroup>
+                                 </select>
+                                </div>
+                             </div>
+                             <!--cierre Finca-->
+                              <!--Seleccion de Lote-->
+                             <div class="form-group">
+                                 <span>Seleccionar Lote</span>
+                                  <div class="col-lg-10">
+                                  <select id="basic" class="selectpicker show-tick form-control" data-live-search="true">
+                                  <option>cow</option>
+                                  <option data-subtext="option subtext">bull</option>
+                                  <option class="get-class" disabled>ox</option>
+                                  <optgroup label="test" data-subtext="optgroup subtext">
+                                  <option>ASD</option>
+                                  <option selected>Bla</option>
+                                  <option>Ble</option>
+                                 </optgroup>
+                                 </select>
+                                </div>
+                             </div>                       
+                        
                             <!--cierre lote-->
             <div class="container-fluid">
             <h2 class="text-center all-tittles">Ingresar Analisis</h2>
@@ -57,8 +66,7 @@
                         <div class="div-table-cell" style="width: 10%;">Potasio(K)</div>
                         <div class="div-table-cell" style="width: 10%;">Magnesio(Mg)</div>
                         <div class="div-table-cell" style="width: 10%;">Zinc(Zn)</div>
-                        <div class="div-table-cell" style="width: 8%;">Eliminar</div>
-                        <div class="div-table-cell" style="width: 8%;">Ver Ficha</div>
+                        
                     </div>
                 </div>
             </div>
@@ -71,18 +79,17 @@
                         <div class="div-table-cell" style="width: 10%;"><input class="form-control"></div>
                         <div class="div-table-cell" style="width: 10%;"><input class="form-control"></div>
                         <div class="div-table-cell" style="width: 10%;"><input class="form-control"></div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                        </div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-info"><i class="zmdi zmdi-file-text"></i></button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
                 </div>
                 </div>
+                <p class="text-center">
+                                <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
+                                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+                            </p>
             </form>
         </div>
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
@@ -122,6 +129,7 @@
         </footer>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </html>
 <?php
 }else{

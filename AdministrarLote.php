@@ -3,6 +3,9 @@
 
         session_start();
     if(isset($_SESSION["id"])){?>
+       <?php
+       require_once("otros/navUsuario.php");
+        ?>
         <div class="container">
             <div class="page-header">
               <h1 class="all-tittles">Administracion de lotes<small>.</small></h1>
