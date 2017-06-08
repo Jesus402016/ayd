@@ -15,9 +15,7 @@ class Finca
 	var $idUsuario;
 	var $departamento;
 
-	function Finca()
-	{
-	}
+
 
 
 
@@ -27,7 +25,7 @@ class Finca
 	 * @param nombre
 	 * @param usuario
 	 */
-	function ginca($idLote, $nombre, $usuario)
+	function finca()
 	{
 	}
 

@@ -30,7 +30,9 @@ class Facade
          return $this->OpUsuario->validarLogin($usuario,$password,$rol);
 		}
 
-
+		function listarFincas($idUsuario){
+			   return $this->OpUsuario->listarFincas($idUsuario);
+		}
 
 	/**
 	 *
@@ -58,13 +60,16 @@ class Facade
 		return $this->OpUsuario->registrarFinca($ciudad, $nombre, $departamento,$idusuario);
 	}
 
+
+
 	/**
 	 *
 	 * @param nombre
 	 * @param idFinca
 	 */
-	function registrarLote($nombre, $idFinca)
+	function registrarLote($nombre, $medida, $fecha, $idFinca)
 	{
+		return $this->OpUsuario->registrarLote($nombre, $medida, $fecha, $idFinca);
 	}
 
 	/**

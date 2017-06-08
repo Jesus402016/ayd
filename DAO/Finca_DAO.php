@@ -35,7 +35,6 @@ class Finca_DAO {
     }
 
     public function EliminarFinca(Finca $finca) {
-
         $this->bd->conection();
         $consulta="DELETE FROM `usuario` WHERE `id_user`=".$user->getId_user();
         $result=$this->bd->ejecutarConsultaSQL($consulta);
@@ -43,10 +42,10 @@ class Finca_DAO {
 
     }
 
-    public function ListarFincas() {
-
-          $this->bd->conection();
-        $consulta="SELECT `id_user`, `nombre_user`, `correo_user`, `calve_user` FROM `usuario`";
+    public function ListarFincas(Finca $finca) {
+        $idUsuario =$finca->getidUsuario();
+        $this->bd->conection();
+        $consulta="SELECT idFinca, nombre FROM finca where  idUsuario=".$idUsuario."";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
     }

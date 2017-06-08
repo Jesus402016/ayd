@@ -1,6 +1,5 @@
 <?php
         require_once("otros/encabezado.php");
-
         session_start();
     if(isset($_SESSION["id"])){?>
        <?php
@@ -43,6 +42,7 @@
         <div class="modal fade" id="modalLote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
       <div class="modal-dialog" role="document">
        <div class="modal-content">
+         <script>setTimeout ("ListarFinca('<?php echo $_SESSION['id']?>')", 5);</script>
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            <h4 class="modal-title" id="exampleModalLabel" style="color:black;">Registrar Lote</h4>
@@ -70,17 +70,12 @@
                           <span class="input-group-btn"></span>
                  </div>
 
-
-
                 <div class="form-group">
                          <p>Finca:</p>
-                         <select class="form-control">
-                            <option>Productiva</option>
-
+                         
+                         <select class="form-control"  id="finca">
                          </select>
                 </div>
-
-
                <div class="form-group">
                         <p>Fase fenologica:</p>
                         <select class="form-control">
@@ -94,7 +89,7 @@
               </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
-           <a type="button" class="btn btn-primary" onclick="mostrarCliente();" data-dismiss="modal">Guardar</a>
+           <a type="button" class="btn btn-primary" onclick="registrarLote();" data-dismiss="modal">Guardar</a>
          </div>
 
       <!--termina modal Registrar Lote--></div>

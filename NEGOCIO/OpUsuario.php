@@ -7,9 +7,9 @@
  */
 
 include_once '../DTO/Usuario.php';
+include_once '../DAO/Usuario_DAO.php';
 include_once '../DTO/Administrador.php';
 include_once '../DAO/Administrador_DAO.php';
-include_once '../DAO/Usuario_DAO.php';
 include_once '../DTO/Finca.php';
 include_once '../DAO/Finca_DAO.php';
 
@@ -111,16 +111,46 @@ class OpUsuario
 				}
 
 		}
-
 	}
+		function ListarFincas($idUsuario)
+		{
+          $cad="";
+					$finca=new Finca();
+					$fincaDAO=new Finca_DAO();
+					$finca->setidUsuario($idUsuario);
+					$resultado=$fincaDAO->ListarFincas($finca);
+					while($row=$fincaDAO->getArray($resultado)){
+								 $cad.="<option value='".$row['idFinca']."'>".$row['nombre']."</option>";
+      					}
+  return $cad;
+
+		}
+
+
+
 
 	/**
 	 *
 	 * @param nombre
 	 * @param idFinca
 	 */
-	function registrarLote($nombre, $idFinca)
+	function registrarLote($nombre, $medida, $fecha, $idFinca)
 	{
+		$lote = new Lote();
+		$loteDAO = new Lote_DAO();
+		$lote->setNombre($nombre);
+		$lote->setMedida($ciudad);
+		$lote->setfecha($departamento);
+		$lote->setidusuario($idFinca);
+		$result=$floteDAO-> AgrgarLote($finca);
+
+		if($result!=true){
+				echo 'Error al registrar Finca';
+		}
+		else {
+				echo 'Registro Exitoso';
+		}
+
 	}
 
 	/**
@@ -171,4 +201,5 @@ class OpUsuario
 	}
 
 }
+
 ?>
