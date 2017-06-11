@@ -1,9 +1,10 @@
 
    <?php
-        require_once("otros/encabezado.php");
+        require_once("otros/encabezadoAdmin.php");
         session_start();
     if(isset($_SESSION["administrador"])){?>
-      
+
+                  <?php require_once("otros/navAdmin.php"); ?>
         <div class="container">
             <div class="page-header">
               <h1 class="all-tittles">Sistema de Fertelizacion del Cacao<small>Inicio</small></h1>

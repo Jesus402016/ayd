@@ -74,7 +74,7 @@ else if(isset($_SESSION["usuario"]))
 
         </form>
         <!--botton registrar nuevo usuario-->
-        <button class="btn-login-left" data-toggle="modal" data-target="#modalRegistrar" type="submit">Registrar &nbsp; <i class="zmdi zmdi-arrow-"></i></button>
+        <button class="btn-login-left" data-toggle="modal" data-target="#modalRegistrar" type="submit">Registrarse &nbsp; <i class="zmdi zmdi-arrow-"></i></button>
     </div>
 
      <!-- modal Registrar-->

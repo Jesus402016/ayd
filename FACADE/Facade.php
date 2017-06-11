@@ -30,7 +30,39 @@ class Facade
          return $this->OpUsuario->validarLogin($usuario,$password,$rol);
 		}
 
+		function listarUsuarios(){
+         return $this->OpUsuario->listarUsuarios();
+		}
 
+
+
+		function listarFincas($idUsuario){
+			   return $this->OpUsuario->listarFincas($idUsuario);
+		}
+
+		function listarFincasTabla($idUsuario){
+			   return $this->OpUsuario->listarFincasTabla($idUsuario);
+		}
+
+		function listarLotesTabla($idUsuario){
+
+			   return $this->OpUsuario->listarLotesTabla($idUsuario);
+		}
+
+		function listarFertilizantesUsuarioTabla($idUsuario){
+
+				 return $this->OpUsuario->listarFertilizantesUsuarioTabla($idUsuario);
+		}
+
+		function eliminarFinca($idFinca){
+
+				return $this->OpUsuario->eliminarFinca($idFinca);
+		}
+
+		function eliminarLote($idLote){
+
+				return $this->OpUsuario->eliminarLote($idLote);
+		}
 
 	/**
 	 *
@@ -58,13 +90,19 @@ class Facade
 		return $this->OpUsuario->registrarFinca($ciudad, $nombre, $departamento,$idusuario);
 	}
 
+
+	function editarFinca($nombre,$idFinca)
+	{
+		return $this->OpUsuario->editarFinca($nombre,$idFinca);
+	}
 	/**
 	 *
 	 * @param nombre
 	 * @param idFinca
 	 */
-	function registrarLote($nombre, $idFinca)
+	function registrarLote($nombre, $medida, $fecha, $idFinca,$estadoF)
 	{
+		return $this->OpUsuario->registrarLote($nombre, $medida, $fecha, $idFinca,$estadoF);
 	}
 
 	/**

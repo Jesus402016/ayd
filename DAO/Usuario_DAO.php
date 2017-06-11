@@ -28,13 +28,14 @@ class Usuario_DAO {
     $contrasena=$user->getpassword();
 
 
-          $this->bd->conection();
-         $consulta="INSERT INTO `usuario`(`nombre`, `cedula`, `correo`,`telefono`, `ocupacion`, `password`, `ciudad`) VALUES  "
-                 . "('".$Nombre."','".$cedula."','".$correo."','".$telefono."','".$ocupacion."','".$contrasena."','".$ciudad."')";
-        $result=$this->bd->ejecutarConsultaSQL($consulta);
-        return $result;
+    $this->bd->conection();
+    $consulta="insert into usuario(nombre, cedula,correo,telefono,ocupacion,password,ciudad) values ('$Nombre','$cedula','$correo','$telefono','$ocupacion','$contrasena','$ciudad')";
+    $result=$this->bd->ejecutarConsultaSQL($consulta);
+    return $result;
 
     }
+
+
       public function Login(Usuario $usuario) {
 
         $this->bd->conection();
@@ -56,9 +57,18 @@ class Usuario_DAO {
     public function ListarUsuarios() {
 
           $this->bd->conection();
-        $consulta="SELECT `id_user`, `nombre_user`, `correo_user`, `calve_user` FROM `usuario`";
+        $consulta="SELECT * FROM `usuario`";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
+    }
+
+    public function infoUsuario(Usuario $Usuario){
+      $this->bd->conection();
+      $id = $Usuario->getidUsuario();
+    $consulta= "SELECT  `nombre`  FROM `usuario` WHERE `idusuario` ='".$id."'";
+    $result=$this->bd->ejecutarConsultaSQL($consulta);
+    return $result;
+
     }
 
     public function getArray($result){

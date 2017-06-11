@@ -18,35 +18,55 @@ class Finca_DAO {
 
 
     public function AgregarFinca(Finca $finca) {
-     $Nombre=$finca->getNombre();
-    $departamento=$finca->getdepartamento();
-    $ciudad=$finca->getciudad();
+     $Nombre=$finca->getnombre();
+     $ciudad=$finca->getciudad();
+     $departamento=$finca->getdepartamento();
+     $idusuario=$finca->getidUsuario();
+     $this->bd->conection();
+     $consulta= "insert into finca (nombre,idUsuario,ciudad,departamento) VALUES('$Nombre','$idusuario','$ciudad','$departamento')";
+
+        $result=$this->bd->ejecutarConsultaSQL($consulta);
+        return $result;
+
+    }
+
+    public function EditarFinca(Finca $finca) {
+    $Nombre=$finca->getNombre();
     $idUsuario=$finca->getidusuario();
     $idFinca=$finca->getidfinca();
 
 
 
          $this->bd->conection();
-         $consulta="INSERT INTO `finca`(`nombre`, `idUsuario`, `ciudad`,`departamento`) VALUES  "
+         $consulta="INSERT INTO `finca`(`nombre`, `idUsuario`, `Ciudad`,`departamento`) VALUES  "
                  . "('".$Nombre."','".$idUsuario."','".$ciudad."','".$departamento."')";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
 
     }
 
-    public function EliminarFinca(Finca $finca) {
-
+    public function eliminarFinca(Finca $finca) {
         $this->bd->conection();
-        $consulta="DELETE FROM `usuario` WHERE `id_user`=".$user->getId_user();
+        $consulta="DELETE FROM `finca` WHERE `idFinca`=".$finca->getidFinca()."";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
 
     }
 
-    public function ListarFincas() {
 
-          $this->bd->conection();
-        $consulta="SELECT `id_user`, `nombre_user`, `correo_user`, `calve_user` FROM `usuario`";
+
+    public function ListarFincas(Finca $finca) {
+        $idUsuario =$finca->getidUsuario();
+        $this->bd->conection();
+        $consulta="SELECT  idFinca, nombre, Ciudad, departamento FROM finca where idUsuario=".$idUsuario."";
+        $result=$this->bd->ejecutarConsultaSQL($consulta);
+        return $result;
+    }
+
+    public function cantidadFincas(Finca $finca) {
+        $idUsuario =$finca->getidUsuario();
+        $this->bd->conection();
+        $consulta="select count('idFinca') as cantidadF from finca f inner join usuario u on f.idUsuario=$idUsuario group by u.idUsuario";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
     }

@@ -7,8 +7,8 @@
  */
 
 include_once ('../otros/conexion2.php');
-include_once ('../DTO/Finca.php');
-class Finca_DAO {
+include_once ('../DTO/Lote.php');
+class Lote_DAO {
     //put your code here
      private $bd;
 
@@ -17,30 +17,52 @@ class Finca_DAO {
     }
 
 
-    public function AgregarLote(Finca $finca) {
-  
+    public function AgregarLote(Lote $lote) {
+      $nombre=$lote->getnombre();
+      $medida=$lote->getmedida();
+      $fecha=$lote->getfecha();
+      $idFinca=$lote->getFinca();
+      $eFenologico=$lote->getestadoF();
 
          $this->bd->conection();
-         $consulta="INSERT INTO `Lote`(`nombre`, `idUsuario`, `ciudad`,`departamento`) VALUES  "
-                 . "('".$Nombre."','".$idUsuario."','".$ciudad."','".$departamento."')";
+         $consulta="INSERT INTO `Lote`(`nombre`, `medida`, `idFinca`,`fecha`,`estadofenologico`) VALUES  "
+                 . "('".$nombre."','".$medida."','".$idFinca."','".$fecha."','".$eFenologico."')";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
 
     }
 
-    public function EliminarFinca(Finca $finca) {
+    public function EliminarLote(Lote $lote) {
 
         $this->bd->conection();
-        $consulta="DELETE FROM `usuario` WHERE `id_user`=".$user->getId_user();
+        $consulta="DELETE FROM `lote` WHERE `idLote`=".$lote->getIdlote()."";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
 
     }
 
-    public function ListarFincas() {
+    public function ListarLotes($idFinca) {
 
           $this->bd->conection();
-        $consulta="SELECT `id_user`, `nombre_user`, `correo_user`, `calve_user` FROM `usuario`";
+        $consulta="SELECT `idLote`, `nombre`, `medida`, `idFinca` , `fecha`, `estadofenologico` FROM `lote` WHERE `idFinca` = ".$idFinca."";
+        $result=$this->bd->ejecutarConsultaSQL($consulta);
+        return $result;
+    }
+
+    public function cantidadLotesU($idUsuario) {
+
+          $this->bd->conection();
+          $consulta="select count(idLote) as cantidadL from lote L inner join finca F on L.idFinca=F.idFinca inner join usuario u  on F.idUsuario=$idUsuario group by u.idUsuario";
+        $result=$this->bd->ejecutarConsultaSQL($consulta);
+        return $result;
+    }
+
+
+
+    public function lotesxFinca($idFinca) {
+
+        $this->bd->conection();
+        $consulta="select count(idLote) as lotes from lote where idFinca = '$idFinca' group by idFinca";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
     }

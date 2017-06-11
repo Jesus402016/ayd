@@ -19,6 +19,52 @@
             </article>
 
 
+
+            <div class="container">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Lotes</h1>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <table id="ejemploFertilizante" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Funcion</th>
+                        <th>Clasificacion</th>
+                        <th>N</th>
+                        <th>P</th>
+                        <th>K </th>
+                        <th>S </th>
+                        <th>Zn </th>
+                        <th>Mn</th>
+                        <th>acciones</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Estado</th>
+                      <th>Funcion</th>
+                      <th>Clasificacion</th>
+                      <th>N</th>
+                      <th>P</th>
+                      <th>K </th>
+                      <th>S </th>
+                      <th>Zn </th>
+                      <th>Mn</th>
+                      <th>acciones</th>
+
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+      </div>
+
+
         </section>
 
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
@@ -55,23 +101,23 @@
                </div>
 
                <div class="form-group">
-                        <p>Cedula:</p>
+                        <p>Estado:</p>
                         <input type="text" class="form-control">
                          <span class="input-group-btn"></span>
                </div>
 
                <div class="form-group">
-                        <p>Correo:</p>
+                        <p>Funcion:</p>
                         <input type="text" class="form-control">
                          <span class="input-group-btn"></span>
                </div>
                <div class="form-group">
-                        <p>Telefono:</p>
+                        <p>Clasificacion:</p>
                         <input type="text" class="form-control">
                          <span class="input-group-btn"></span>
                </div>
                <div class="form-group">
-                        <p>Ocupacion:</p>
+                        <p>Sodio:</p>
                         <input type="text" class="form-control">
                          <span class="input-group-btn"></span>
                </div>

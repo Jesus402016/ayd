@@ -41,9 +41,8 @@
                 <ul class="list-unstyled">
                     <li><a href="inicioUsuario.php"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li><a href="analisis.php"><i class="zmdi zmdi-case zmdi-hc-fw"></i>&nbsp;&nbsp; Plan de Fertilizacion</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-chart zmdi-hc-fw"></i>&nbsp;&nbsp; Reportes</a></li>
+                    <li><a href="Reportes.php"><i class="zmdi zmdi-chart zmdi-hc-fw"></i>&nbsp;&nbsp; Reportes</a></li>
                      <li><a href="administrar.php"><i class="zmdi zmdi-assignment-account zmdi-hc-fw"></i>&nbsp;&nbsp;Administrar </a></li>
              </div>
         </div>
     </div>
-    

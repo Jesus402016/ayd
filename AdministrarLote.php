@@ -1,11 +1,32 @@
 <?php
         require_once("otros/encabezado.php");
-
         session_start();
     if(isset($_SESSION["id"])){?>
        <?php
        require_once("otros/navUsuario.php");
         ?>
+
+        <meta charset="UTF-8">
+        <title>Lotes</title>
+        <!--CSS-->
+        <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.css">
+        <!--Javascript-->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/jquery.dataTables.min.js"></script>
+        <script src="js/dataTables.bootstrap.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/operaciones.js"></script>
+
+        <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        </script>
+
+
         <div class="container">
             <div class="page-header">
               <h1 class="all-tittles">Administracion de lotes<small>.</small></h1>
@@ -18,6 +39,48 @@
                 <div class="tile-name all-tittles">Registrar Lote</div>
                 <div class="tile-num full-reset">1</div>
             </article>
+
+
+
+
+            <div class="container">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Lotes</h1>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <table id="ejemploLote" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>finca</th>
+                        <th>idLote</th>
+                        <th>nombre</th>
+                        <th>medida</th>
+                        <th>ubicacion</th>
+                        <th>fecha</th>
+                        <th>estado fenologico </th>
+                        <th>acciones</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                      <th>finca</th>
+                      <th>idLote</th>
+                      <th>nombre</th>
+                      <th>medida</th>
+                      <th>ubicacion</th>
+                      <th>fecha</th>
+                      <th>estado fenologico </th>
+                      <th>acciones</th>
+
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+      </div>
+
 
 
         </section>
@@ -43,6 +106,7 @@
         <div class="modal fade" id="modalLote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
       <div class="modal-dialog" role="document">
        <div class="modal-content">
+         <script>setTimeout ("ListarFinca('<?php echo $_SESSION['id']?>')", 5);</script>
          <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            <h4 class="modal-title" id="exampleModalLabel" style="color:black;">Registrar Lote</h4>
@@ -70,20 +134,15 @@
                           <span class="input-group-btn"></span>
                  </div>
 
-
-
                 <div class="form-group">
                          <p>Finca:</p>
-                         <select class="form-control">
-                            <option>Productiva</option>
 
+                         <select class="form-control" id="finca">
                          </select>
                 </div>
-
-
                <div class="form-group">
                         <p>Fase fenologica:</p>
-                        <select class="form-control">
+                        <select class="form-control" id="estadoF">
                            <option>Productiva</option>
 
                         </select>
@@ -94,7 +153,7 @@
               </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
-           <a type="button" class="btn btn-primary" onclick="mostrarCliente();" data-dismiss="modal">Guardar</a>
+           <a type="button" class="btn btn-primary" onclick="registrarLote();" data-dismiss="modal">Guardar</a>
          </div>
 
       <!--termina modal Registrar Lote--></div>
@@ -116,8 +175,7 @@
         </footer>
     </div>
 </body>
-<script src="js/operaciones.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 </html>
 <?php
 }else{

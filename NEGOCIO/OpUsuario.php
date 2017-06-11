@@ -7,11 +7,14 @@
  */
 
 include_once '../DTO/Usuario.php';
+include_once '../DAO/Usuario_DAO.php';
 include_once '../DTO/Administrador.php';
 include_once '../DAO/Administrador_DAO.php';
-include_once '../DAO/Usuario_DAO.php';
 include_once '../DTO/Finca.php';
 include_once '../DAO/Finca_DAO.php';
+include_once '../DTO/Lote.php';
+include_once '../DAO/Lote_DAO.php';
+
 
 class OpUsuario
 {
@@ -54,6 +57,50 @@ class OpUsuario
 
 	}
 
+
+
+
+function listarUsuarios()
+{
+	$Usuario= new Usuario();
+	$UsuarioDAO= new Usuario_DAO();
+
+	$tabla = "";
+	$result=$UsuarioDAO->listarUsuarios();
+    while($row1=$UsuarioDAO->getArray($result))
+		{
+				$finca=new Finca();
+				$fincaDAO=new Finca_DAO();
+			  $finca->setidUsuario($row1['idusuario']);
+				$fincas=$fincaDAO->cantidadFincas($finca);
+				$cantFincas = $fincaDAO->getArray($fincas);
+				$loteDAO = new Lote_DAO();
+				$lotes=$loteDAO->cantidadLotesU($row1['idusuario']);
+				$cantLotes = $loteDAO->getArray($lotes);
+				$editar = '<a href='.$row1['idusuario'].'\" data-toggle=\"modal\" data-target=\"#modalEFinca\" type=\"submit\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\" class=\"btn btn-primary\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>';
+				$eliminar = '<a href=\"controlador/eliminarFinca.php?id='.$row1['idusuario'].'\" onclick=\"return confirm(\'¿Seguro que desea eliminar esta finca?\')\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\" class=\"btn btn-danger\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>';
+				$tabla.='{
+							"nombre":"'.$row1['nombre'].'",
+							"cedula":"'.$row1['cedula'].'",
+							"correo":"'.$row1['correo'].'",
+							"ocupacion":"'.$row1['ocupacion'].'",
+							"telefono":"'.$row1['telefono'].'",
+							"ciudad":"'.$row1['ciudad'].'",
+							"fincas":"'.$cantFincas['cantidadF'].'",
+							"lotes":"'.$cantLotes['cantidadL'].'",
+							"acciones":"'.$editar.$eliminar.'"
+						},';
+			}
+
+						$tabla = substr($tabla,0, strlen($tabla) - 1);
+
+						return $tabla;
+
+
+
+}
+
+
 	/**
 	 *
 	 * @param ciudad
@@ -64,10 +111,10 @@ class OpUsuario
 	{
 		$finca = new Finca();
 		$fincaDAO = new Finca_DAO();
-		$finca->setNombre($nombre);
+		$finca->setnombre($nombre);
 		$finca->setciudad($ciudad);
 		$finca->setdepartamento($departamento);
-		$finca->setidusuario($idusuario);
+		$finca->setidUsuario($idusuario);
 		$result=$fincaDAO-> AgregarFinca($finca);
 
 		if($result!=true){
@@ -75,6 +122,22 @@ class OpUsuario
 		}
 		else {
 				echo 'Registro Exitoso';
+		}
+	}
+
+	function editarFinca($nombre,$idFinca)
+	{
+		$finca = new Finca();
+		$fincaDAO = new Finca_DAO();
+		$finca->setNombre($nombre);
+		$finca->setidFinca($idFinca);
+		$result=$fincaDAO-> EditarFinca($finca);
+
+		if($result!=true){
+				echo 'Error al editar Finca';
+		}
+		else {
+				echo 'Finca actualizada';
 		}
 	}
 
@@ -111,16 +174,158 @@ class OpUsuario
 				}
 
 		}
-
 	}
+		function ListarFincas($idUsuario)
+		{
+          $cad="";
+					$finca=new Finca();
+					$fincaDAO=new Finca_DAO();
+					$finca->setidUsuario($idUsuario);
+					$resultado=$fincaDAO->ListarFincas($finca);
+					while($row=$fincaDAO->getArray($resultado)){
+								 $cad.="<option value='".$row['idFinca']."'>".$row['nombre']."</option>";
+      					}
+  return $cad;
+
+		}
+
+//consulta   select count(idLote) from lote group by (idFinca)
+		function ListarFincasTabla($idUsuario)
+		{
+          $usuario = new Usuario();
+					$usuarioDAO = new Usuario_DAO();
+					$usuario->setidUsuario($idUsuario);
+					$nombres = $usuarioDAO->infoUsuario($usuario);
+					$nombre = $usuarioDAO->getArray($nombres);
+					$finca=new Finca();
+					$fincaDAO=new Finca_DAO();
+					$finca->setidUsuario($idUsuario);
+					$resultado=$fincaDAO->ListarFincas($finca);
+					$loteDAO = new Lote_DAO();
+
+					$tabla = "";
+
+					while($row=$fincaDAO->getArray($resultado))
+					{
+  					$lotes = $loteDAO->lotesxFinca($row['idFinca']);
+						$lote = $loteDAO->getArray($lotes);
+						$editar = '<a href='.$row['idFinca'].'\" data-toggle=\"modal\" data-target=\"#modalEFinca\" type=\"submit\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\" class=\"btn btn-primary\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>';
+
+						$eliminar = '<a href=\"controlador/eliminarFinca.php?id='.$row['idFinca'].'\" onclick=\"return confirm(\'¿Seguro que desea eliminar esta finca?\')\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\" class=\"btn btn-danger\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>';
+
+						$tabla.='{
+								  "propietario":"'.$nombre['nombre'].'",
+								  "finca":"'.$row['nombre'].'",
+								  "Ciudad":"'.$row['Ciudad'].'",
+								  "departamento":"'.$row['departamento'].'",
+									"lotes":"'.$lote['lotes'].'",
+								  "acciones":"'.$editar.$eliminar.'"
+								},';
+      		}
+
+								$tabla = substr($tabla,0, strlen($tabla) - 1);
+
+								return $tabla;
+
+
+
+		}
+
+
+		function eliminarFinca($idFinca){
+			$finca = new Finca();
+			$fincaDao = new Finca_DAO();
+			$finca->setidFinca($idFinca);
+			$result = $fincaDao->eliminarFinca($finca);
+			echo "finca eliminada";
+		}
+
+
+
+
+		function ListarLotesTabla($idUsuario)
+		{
+
+					$finca=new Finca();
+					$fincaDAO=new Finca_DAO();
+					$finca->setidUsuario($idUsuario);
+					$result=$fincaDAO->ListarFincas($finca);
+
+
+
+					$tabla = "";
+					while ($fincas=$fincaDAO->getArray($result))
+					{
+
+						$loteDAO=new Lote_DAO();
+						$resultado=$loteDAO->ListarLotes($fincas['idFinca']);
+
+
+					while($row=$loteDAO->getArray($resultado))
+					{
+            if($fincas['idFinca']==$row['idFinca'])
+						{
+						$editar = '<a href=\"edicionLote.php?a='.$row['estadofenologico'].'\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\" class=\"btn btn-primary\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>';
+						$eliminar = '<a href=\"controlador/eliminarLote.php?id='.$row['idLote'].'\" onclick=\"return confirm(\'¿Seguro que desea eliminar esta finca?\')\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\" class=\"btn btn-danger\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>';
+
+						$tabla.='{
+									"finca":"'.$fincas['nombre'].'",
+								  "idLote":"'.$row['idLote'].'",
+								  "lote":"'.$row['nombre'].'",
+								  "medida":"'.$row['medida'].'",
+									"ubicacion":"'.$fincas['Ciudad'].'",
+									"fecha":"'.$row['fecha'].'",
+									"estadofenologico":"'.$row['estadofenologico'].'",
+								  "acciones":"'.$editar.$eliminar.'"
+								},';
+						}
+      		}
+
+					}
+
+								$tabla = substr($tabla,0, strlen($tabla) - 1);
+
+								return $tabla;
+
+
+
+		}
+
+		function eliminarLote($idLote){
+			$Lote = new Lote();
+			$LoteDao = new Lote_DAO();
+			$Lote->setidLote($idLote);
+			$result = $LoteDao->eliminarLote($Lote);
+			echo "Lote eliminada";
+		}
+
+
+
 
 	/**
 	 *
 	 * @param nombre
 	 * @param idFinca
 	 */
-	function registrarLote($nombre, $idFinca)
+	function registrarLote($nombre, $medida, $fecha, $idFinca,$estadoF)
 	{
+
+		$lote = new Lote();
+		$loteDAO = new Lote_DAO();
+		$lote->setnombre($nombre);
+		$lote->setmedida($medida);
+		$lote->setfecha($fecha);
+		$lote->setFinca($idFinca);
+		$lote->setestadoF($estadoF);
+		$result=$loteDAO-> AgregarLote($lote);
+
+		if($result!=true){
+				echo 'Error al registrar Finca';
+		}
+		else {
+				echo 'Registro Exitoso';
+		}
+
 	}
 
 	/**
@@ -171,4 +376,5 @@ class OpUsuario
 	}
 
 }
+
 ?>

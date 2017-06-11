@@ -11,7 +11,7 @@
               <h1 class="all-tittles">Nuevo Analisis<small></small></h1>
             </div>
         </div>
-        
+
         <div class="container-fluid">
             <form autocomplete="off">
                 <div class="container-flat-form">
@@ -22,8 +22,7 @@
                                 <!--Seleccion de Finca-->
                                 <div class="form-group">
                                  <span>Seleccionar Finca</span>
-                                  <div class="col-lg-10" id="select-finca">
-                                
+                                  <div class="col-lg-10" id="select-finca">                                
                                   <select id="basic" class="selectpicker show-tick form-control" data-live-search="true">
                                   <option>cow</option>
                                   <option data-subtext="option subtext">bull</option>
@@ -52,8 +51,8 @@
                                  </optgroup>
                                  </select>
                                 </div>
-                             </div>                       
-                        
+                             </div>
+
                             <!--cierre lote-->
             <div class="container-fluid">
             <h2 class="text-center all-tittles">Ingresar Analisis</h2>
@@ -66,7 +65,7 @@
                         <div class="div-table-cell" style="width: 10%;">Potasio(K)</div>
                         <div class="div-table-cell" style="width: 10%;">Magnesio(Mg)</div>
                         <div class="div-table-cell" style="width: 10%;">Zinc(Zn)</div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -79,7 +78,7 @@
                         <div class="div-table-cell" style="width: 10%;"><input class="form-control"></div>
                         <div class="div-table-cell" style="width: 10%;"><input class="form-control"></div>
                         <div class="div-table-cell" style="width: 10%;"><input class="form-control"></div>
-                        
+
                     </div>
                 </div>
             </div>
