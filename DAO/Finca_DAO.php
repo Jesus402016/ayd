@@ -45,7 +45,11 @@ class Finca_DAO {
 
     }
 
+<<<<<<< HEAD
     public function eliminarFinca(Finca $finca) {
+=======
+    public function EliminarFinca(Finca $finca) {
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
         $this->bd->conection();
         $consulta="DELETE FROM `finca` WHERE `idFinca`=".$finca->getidFinca()."";
         $result=$this->bd->ejecutarConsultaSQL($consulta);
@@ -53,6 +57,7 @@ class Finca_DAO {
 
     }
 
+<<<<<<< HEAD
 
 
     public function ListarFincas(Finca $finca) {
@@ -67,6 +72,12 @@ class Finca_DAO {
         $idUsuario =$finca->getidUsuario();
         $this->bd->conection();
         $consulta="select count('idFinca') as cantidadF from finca f inner join usuario u on f.idUsuario=$idUsuario group by u.idUsuario";
+=======
+    public function ListarFincas(Finca $finca) {
+        $idUsuario =$finca->getidUsuario();
+        $this->bd->conection();
+        $consulta="SELECT idFinca, nombre FROM finca where  idUsuario=".$idUsuario."";
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
         $result=$this->bd->ejecutarConsultaSQL($consulta);
         return $result;
     }

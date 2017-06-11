@@ -30,6 +30,7 @@ class Facade
          return $this->OpUsuario->validarLogin($usuario,$password,$rol);
 		}
 
+<<<<<<< HEAD
 		function listarUsuarios(){
          return $this->OpUsuario->listarUsuarios();
 		}
@@ -63,6 +64,11 @@ class Facade
 
 				return $this->OpUsuario->eliminarLote($idLote);
 		}
+=======
+		function listarFincas($idUsuario){
+			   return $this->OpUsuario->listarFincas($idUsuario);
+		}
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
 
 	/**
 	 *
@@ -91,18 +97,28 @@ class Facade
 	}
 
 
+<<<<<<< HEAD
 	function editarFinca($nombre,$idFinca)
 	{
 		return $this->OpUsuario->editarFinca($nombre,$idFinca);
 	}
+=======
+
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
 	/**
 	 *
 	 * @param nombre
 	 * @param idFinca
 	 */
+<<<<<<< HEAD
 	function registrarLote($nombre, $medida, $fecha, $idFinca,$estadoF)
 	{
 		return $this->OpUsuario->registrarLote($nombre, $medida, $fecha, $idFinca,$estadoF);
+=======
+	function registrarLote($nombre, $medida, $fecha, $idFinca)
+	{
+		return $this->OpUsuario->registrarLote($nombre, $medida, $fecha, $idFinca);
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
 	}
 
 	/**

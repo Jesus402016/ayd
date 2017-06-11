@@ -189,6 +189,7 @@ function listarUsuarios()
 
 		}
 
+<<<<<<< HEAD
 //consulta   select count(idLote) from lote group by (idFinca)
 		function ListarFincasTabla($idUsuario)
 		{
@@ -299,6 +300,8 @@ function listarUsuarios()
 			echo "Lote eliminada";
 		}
 
+=======
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
 
 
 
@@ -307,6 +310,7 @@ function listarUsuarios()
 	 * @param nombre
 	 * @param idFinca
 	 */
+<<<<<<< HEAD
 	function registrarLote($nombre, $medida, $fecha, $idFinca,$estadoF)
 	{
 
@@ -318,6 +322,17 @@ function listarUsuarios()
 		$lote->setFinca($idFinca);
 		$lote->setestadoF($estadoF);
 		$result=$loteDAO-> AgregarLote($lote);
+=======
+	function registrarLote($nombre, $medida, $fecha, $idFinca)
+	{
+		$lote = new Lote();
+		$loteDAO = new Lote_DAO();
+		$lote->setNombre($nombre);
+		$lote->setMedida($ciudad);
+		$lote->setfecha($departamento);
+		$lote->setidusuario($idFinca);
+		$result=$floteDAO-> AgrgarLote($finca);
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
 
 		if($result!=true){
 				echo 'Error al registrar Finca';

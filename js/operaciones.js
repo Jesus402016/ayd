@@ -340,10 +340,37 @@ else{
   alert("para registrar un lote todos los campos deben ser diligenciados");
 }
 }
+}
 
 
+function registrarLote(){
+//creamos los datos
+var nombre=document.getElementById("nombre").value;
+var medida=document.getElementById("medida").value;
+var fecha=document.getElementById("fecha").value;
+
+if (nombre!=""){
+  $.ajax({
+  type:'POST',
+  url:'controlador/registrarLote.php',
+  data:{'nombre':nombre,'medida':medida,'fecha':fecha},
+          success:
+              function(respuesta) {
+              alert(respuesta);
+   }
+  });
+}
+else{
+  alert("para registrar un lote todos los campos deben ser diligenciados");
+}
+}
 
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
 function ListarFinca(id){
 //creamos los datos
   $.ajax({

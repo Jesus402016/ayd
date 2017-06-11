@@ -136,8 +136,13 @@
 
                 <div class="form-group">
                          <p>Finca:</p>
+<<<<<<< HEAD
 
                          <select class="form-control" id="finca">
+=======
+                         
+                         <select class="form-control"  id="finca">
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
                          </select>
                 </div>
                <div class="form-group">

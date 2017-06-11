@@ -209,6 +209,12 @@
 
 
 </body>
+<<<<<<< HEAD
+=======
+
+<script src="js/operaciones.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+>>>>>>> de8ea11bdfd548fe90ba88fd07c569b35568951c
 </html>
 <?php
 }else{
